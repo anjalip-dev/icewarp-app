@@ -10,7 +10,10 @@ import SwiftyJSON
 import CoreData
 
 class LoginViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var mainView: UIView!
+    
     @IBOutlet weak var textField_Email: UITextField!
     
     @IBOutlet weak var textField_Password: UITextField!
@@ -24,26 +27,54 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mainView.layer.cornerRadius = 20
+        
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             persistentContainer = appDelegate.persistentContainer.viewContext
         }
         
         hideLoader()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            if PrefManager.shared.getAuthorizationToken() != nil {
-                self.performSegue(withIdentifier: "openChannel", sender: self)
-                return
-            }
+        //        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        //            if PrefManager.shared.getAuthorizationToken() != nil {
+        //                self.performSegue(withIdentifier: "openChannel", sender: self)
+        //                return
+        //            }
+        //        }
+        
+        
+        Task {
+            await navigateToChannel()
         }
-
+        
     }
     
-
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
+    // MARK: - Navigation
+    
+    func navigateToChannel() async {
+        
+        try? await Task.sleep(nanoseconds: 100_000_000) // 0.1 seconds in nanoseconds
+        
+        // auto login can be can checked via pre-manager here
+//        if PrefManager.shared.getAuthorizationToken() != nil {
+//            await MainActor.run {
+//                self.performSegue(withIdentifier: "openChannel", sender: self)
+//            }
+//        }
+        
+        // auto login can be can checked via key chain here
+        if KeyChainHelper.shared.getDataFromKeychain(key: "userToken") != nil {
+            await MainActor.run {
+                self.performSegue(withIdentifier: "openChannel", sender: self)
+            }
+        }
+        
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
     }
     
     // MARK: - Actions
@@ -71,7 +102,7 @@ class LoginViewController: UIViewController {
             
             return
         }
-  
+        
         guard let host = textField_Host.text, !host.isEmpty else {
             
             let alert = UIAlertController(title: "Error", message: "Please enter host", preferredStyle: .alert)
@@ -90,7 +121,7 @@ class LoginViewController: UIViewController {
             username: email,
             password: password
         ) { result in
-                
+            
             self.hideLoader()
             
             switch result {
@@ -103,8 +134,8 @@ class LoginViewController: UIViewController {
             }
             
         }
-            
-                    
+        
+        
     }
     
     private func showLoader() {
@@ -122,7 +153,7 @@ class LoginViewController: UIViewController {
     private func processLoginResponse(_ response: Data) {
         
         if let responseString = String(data: response, encoding: .utf8) {
-                print("Login successful: \(responseString)")
+            print("Login successful: \(responseString)")
             
             if let jsonData = responseString.data(using: .utf8) {
                 do {
@@ -139,6 +170,9 @@ class LoginViewController: UIViewController {
                     // Save to token in pre manager / user default
                     PrefManager.shared.setAuthorizationToken(authResponse.token)
                     
+                    // Save the token in key chaing
+                    KeyChainHelper.shared.saveDataToKeychain(key: "userToken", authResponse.token)
+                    
                     DispatchQueue.main.async {
                         self.performSegue(withIdentifier: "openChannel", sender: self)
                     }
@@ -151,7 +185,7 @@ class LoginViewController: UIViewController {
         }
         
     }
-
+    
     private func loginToIceWarp(
         username: String,
         password: String,
@@ -168,14 +202,14 @@ class LoginViewController: UIViewController {
             "username": username,
             "password": password
         ]
-    
+        
         let parameterString = parameters.map { "\($0.key)=\($0.value)" }.joined(separator: "&")
         guard let postData = parameterString.data(using: .utf8) else {
             completion(.failure(NSError(domain: "Encoding Error", code: 0, userInfo: nil)))
             return
         }
         
-    
+        
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
@@ -203,5 +237,5 @@ class LoginViewController: UIViewController {
         task.resume()
     }
     
-
+    
 }

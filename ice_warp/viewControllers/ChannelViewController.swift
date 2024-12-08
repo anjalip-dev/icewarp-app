@@ -79,6 +79,7 @@ class ChannelViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     @IBAction func onBackPressed(_ sender: Any) {
         PrefManager.shared.clearData()
+        KeyChainHelper.shared.clearAllKeychainData()
         navigationController?.popViewController(animated: true)
     }
     
@@ -108,8 +109,12 @@ class ChannelViewController: UIViewController, UICollectionViewDelegate, UIColle
                 do {
                                         
                     let channelResponse = try JSONDecoder().decode(ChannelResponse.self, from: jsonData)
-                                    
-                    saveChannelsToCoreData(channelResponse.channels, context: persistentContainer)
+                     
+                    Task {
+                        await
+                        saveChannelsToCoreData(channelResponse.channels, context: self.persistentContainer)
+                    }
+                    
                     loadData()
                     
                 } catch {

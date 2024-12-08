@@ -9,8 +9,8 @@ import Foundation
 import CoreData
 
 func saveAccountToCoreData(
-    _ authResponse: AuthResponse,
-    context: NSManagedObjectContext
+_ authResponse: AuthResponse,
+context: NSManagedObjectContext
 ) {
     
     let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Account.fetchRequest()
@@ -40,7 +40,7 @@ func saveAccountToCoreData(
 func saveChannelsToCoreData(
     _ channels: [ChannelDto],
     context: NSManagedObjectContext
-) {
+) async {
     
     let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Channel.fetchRequest()
     let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)

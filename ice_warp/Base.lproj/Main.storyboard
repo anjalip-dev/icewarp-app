@@ -17,53 +17,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V8f-1D-SX7">
-                                <rect key="frame" x="46.666666666666657" y="224" width="300" height="404"/>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V8f-1D-SX7">
+                                <rect key="frame" x="16" y="229.66666666666663" width="361" height="393"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_icewarp" translatesAutoresizingMaskIntoConstraints="NO" id="icY-Os-D4h">
-                                        <rect key="frame" x="112.33333333333334" y="16" width="75" height="75"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_loginLogo" translatesAutoresizingMaskIntoConstraints="NO" id="icY-Os-D4h" customClass="c">
+                                        <rect key="frame" x="148.66666666666666" y="16" width="64" height="64"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="75" id="1Wv-Gd-57m"/>
-                                            <constraint firstAttribute="height" constant="75" id="N5t-Yv-lYW"/>
+                                            <constraint firstAttribute="width" constant="64" id="1Wv-Gd-57m"/>
+                                            <constraint firstAttribute="height" constant="64" id="N5t-Yv-lYW"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in to IceWarp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DfC-hJ-Poo">
-                                        <rect key="frame" x="8" y="107" width="284" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <rect key="frame" x="8" y="96.000000000000028" width="345" height="24"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="testuser@mofa.onice.io" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aHh-M8-Nm1">
-                                        <rect key="frame" x="16" y="163" width="268" height="34"/>
+                                        <rect key="frame" x="16" y="152.00000000000003" width="329" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password123456" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pKB-cD-cDV">
-                                        <rect key="frame" x="16" y="213" width="268" height="34"/>
+                                        <rect key="frame" x="16" y="202.00000000000003" width="329" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="mofa.onice.io" borderStyle="roundedRect" placeholder="Host" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j0T-qJ-OAE">
-                                        <rect key="frame" x="16" y="263" width="268" height="34"/>
+                                        <rect key="frame" x="16" y="252" width="329" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hjz-c9-F4t">
-                                        <rect key="frame" x="100" y="329" width="100" height="35"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hjz-c9-F4t">
+                                        <rect key="frame" x="130.66666666666666" y="318" width="100" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="brm-ve-i7B"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Sign In"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Sign In">
+                                            <color key="baseBackgroundColor" red="0.20343691667098376" green="0.23031500775595634" blue="0.81974871134020622" alpha="0.48753720238095238" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="authenticateUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MUb-R6-SFv"/>
                                         </connections>
                                     </button>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="YXv-tX-pQv">
-                                        <rect key="frame" x="140" y="372" width="20" height="20"/>
+                                        <rect key="frame" x="170.66666666666666" y="361" width="20" height="20"/>
                                     </activityIndicatorView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.70149942869003734" green="0.70031615376604239" blue="0.72098501932989689" alpha="0.41066113945578231" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="hjz-c9-F4t" secondAttribute="bottom" constant="40" id="0OP-LT-bv0"/>
                                     <constraint firstItem="pKB-cD-cDV" firstAttribute="top" secondItem="aHh-M8-Nm1" secondAttribute="bottom" constant="16" id="4IJ-Kv-kaS"/>
@@ -82,7 +84,6 @@
                                     <constraint firstAttribute="trailing" secondItem="DfC-hJ-Poo" secondAttribute="trailing" constant="8" id="UyS-RU-BoQ"/>
                                     <constraint firstItem="YXv-tX-pQv" firstAttribute="centerX" secondItem="V8f-1D-SX7" secondAttribute="centerX" id="gtQ-yG-9fk"/>
                                     <constraint firstItem="j0T-qJ-OAE" firstAttribute="leading" secondItem="V8f-1D-SX7" secondAttribute="leading" constant="16" id="gzC-6Q-CXh"/>
-                                    <constraint firstAttribute="width" constant="300" id="iXT-gk-xar"/>
                                     <constraint firstAttribute="trailing" secondItem="aHh-M8-Nm1" secondAttribute="trailing" constant="16" id="pJR-b2-CoP"/>
                                     <constraint firstItem="hjz-c9-F4t" firstAttribute="top" secondItem="j0T-qJ-OAE" secondAttribute="bottom" constant="32" id="r0c-n5-vvN"/>
                                     <constraint firstItem="YXv-tX-pQv" firstAttribute="top" secondItem="hjz-c9-F4t" secondAttribute="bottom" constant="8" id="tdu-ca-QVJ"/>
@@ -91,15 +92,18 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
+                            <constraint firstItem="V8f-1D-SX7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="6Q7-gC-23D"/>
                             <constraint firstItem="V8f-1D-SX7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NkC-5N-Ydu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="V8f-1D-SX7" secondAttribute="trailing" constant="16" id="ZpB-7v-tPh"/>
                             <constraint firstItem="V8f-1D-SX7" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="udO-Ta-g5D"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bzT-mi-G2A"/>
                     <connections>
                         <outlet property="loader" destination="YXv-tX-pQv" id="jTg-RF-joC"/>
+                        <outlet property="mainView" destination="V8f-1D-SX7" id="dka-2H-hQ6"/>
                         <outlet property="textField_Email" destination="aHh-M8-Nm1" id="jas-Ft-rEt"/>
                         <outlet property="textField_Host" destination="j0T-qJ-OAE" id="XhX-sc-Wl1"/>
                         <outlet property="textField_Password" destination="pKB-cD-cDV" id="If0-xv-Dnj"/>
@@ -200,7 +204,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ai6-zw-FpT">
-                        <barButtonItem key="leftBarButtonItem" title="Back" image="arrowshape.backward.fill" catalog="system" id="iz2-oI-jVq">
+                        <barButtonItem key="leftBarButtonItem" title="Back" image="arrow.backward" catalog="system" id="iz2-oI-jVq">
                             <connections>
                                 <action selector="onBackPressed:" destination="U5u-6d-dT5" id="SeZ-pV-EcG"/>
                             </connections>
@@ -234,10 +238,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowshape.backward.fill" catalog="system" width="128" height="104"/>
-        <image name="ic_icewarp" width="75" height="75"/>
+        <image name="arrow.backward" catalog="system" width="128" height="95"/>
+        <image name="ic_loginLogo" width="341.33334350585938" height="341.33334350585938"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
