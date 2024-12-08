@@ -34,7 +34,12 @@ class LoginViewController: UIViewController {
         }
         
         hideLoader()
+    
+        Task {
+            await navigateToChannel()
+        }
         
+        //This is an alternate way to open the Channels Screen
         //        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
         //            if PrefManager.shared.getAuthorizationToken() != nil {
         //                self.performSegue(withIdentifier: "openChannel", sender: self)
@@ -42,10 +47,6 @@ class LoginViewController: UIViewController {
         //            }
         //        }
         
-        
-        Task {
-            await navigateToChannel()
-        }
         
     }
     
@@ -81,9 +82,9 @@ class LoginViewController: UIViewController {
     
     @IBAction func authenticateUser(_ sender: UIButton) {
         
-        guard let email = textField_Email.text, !email.isEmpty else {
+        guard let email = textField_Email.text, !email.isEmpty, email.isValidEmail() else {
             
-            let alert = UIAlertController(title: "Error", message: "Please enter email", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Error", message: "Please enter a valid email", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default))
             
             present(alert, animated: true)
@@ -95,6 +96,17 @@ class LoginViewController: UIViewController {
         guard let password = textField_Password.text, !password.isEmpty else {
             
             let alert = UIAlertController(title: "Error", message: "Please enter password", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            
+            present(alert, animated: true)
+            
+            return
+        }
+        
+        if password.count < 6 {
+            
+            let alert = UIAlertController(title: "Error", message: "Password must be of atleast 6 characters", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "OK", style: .default))
             
@@ -131,6 +143,19 @@ class LoginViewController: UIViewController {
                 
             case .failure(let error):
                 print("===========> Error: \(error)")
+                
+             
+                DispatchQueue.main.async {
+                    
+                    let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                    
+                    alert.addAction(UIAlertAction(title: "OK", style: .default))
+                    
+                    self.present(alert, animated: true)
+                    
+                }
+                
+                
             }
             
         }

@@ -94,6 +94,21 @@ class ChannelViewController: UIViewController, UICollectionViewDelegate, UIColle
                 
             case .failure(let error):
                 print("===========> Error: \(error)")
+                
+                if self.channels.isEmpty {
+                
+                    DispatchQueue.main.async {
+                        
+                        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                        
+                        alert.addAction(UIAlertAction(title: "OK", style: .default))
+                        
+                        self.present(alert, animated: true)
+                        
+                    }
+                    
+                }
+                
             }
             
         }
