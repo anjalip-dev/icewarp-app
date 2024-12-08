@@ -24,7 +24,7 @@ public class KeyChainHelper {
             kSecValueData as String: tokenData
         ]
         
-        // Remove existing token if it exists
+        // Remove existing tokne if it exists
         SecItemDelete(query as CFDictionary)
         
         // Add new token

@@ -133,27 +133,27 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChannelCollectionViewCell" id="arP-dq-1Gu" customClass="ChannelCollectionViewCell" customModule="ice_warp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="60"/>
+                                        <rect key="frame" x="0.0" y="50" width="393" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xQ6-sX-g59">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIR-aM-Ydj">
-                                                    <rect key="frame" x="40" y="8" width="321" height="44"/>
+                                                    <rect key="frame" x="40" y="0.0" width="41.333333333333343" height="40"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="XIR-aM-Ydj" firstAttribute="top" secondItem="xQ6-sX-g59" secondAttribute="top" constant="8" id="Bu1-gD-Uch"/>
-                                                <constraint firstAttribute="trailing" secondItem="XIR-aM-Ydj" secondAttribute="trailing" constant="32" id="Cs2-8x-cFj"/>
-                                                <constraint firstAttribute="bottom" secondItem="XIR-aM-Ydj" secondAttribute="bottom" constant="8" id="Kpm-W3-scQ"/>
+                                                <constraint firstItem="XIR-aM-Ydj" firstAttribute="top" secondItem="xQ6-sX-g59" secondAttribute="top" id="Bu1-gD-Uch"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="XIR-aM-Ydj" secondAttribute="trailing" symbolic="YES" id="Cs2-8x-cFj"/>
+                                                <constraint firstAttribute="bottom" secondItem="XIR-aM-Ydj" secondAttribute="bottom" id="Kpm-W3-scQ"/>
                                                 <constraint firstItem="XIR-aM-Ydj" firstAttribute="leading" secondItem="xQ6-sX-g59" secondAttribute="leading" constant="40" id="zfQ-Ka-ife"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="393" height="60"/>
+                                        <size key="customSize" width="393" height="40"/>
                                         <connections>
                                             <outlet property="label_channelName" destination="XIR-aM-Ydj" id="Gvz-tZ-OaQ"/>
                                         </connections>
@@ -166,18 +166,29 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vTy-er-GJI">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
                                             <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="efb-cv-1e5" customClass="c">
+                                                    <rect key="frame" x="8" y="13.333333333333332" width="20" height="23.999999999999996"/>
+                                                    <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="DN5-IW-WSf"/>
+                                                        <constraint firstAttribute="height" constant="20" id="OJx-Cs-77z"/>
+                                                    </constraints>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fX-MQ-e9N">
-                                                    <rect key="frame" x="16" y="8" width="361" height="34"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="44" y="8" width="333" height="34"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
+                                                <constraint firstItem="efb-cv-1e5" firstAttribute="top" secondItem="vTy-er-GJI" secondAttribute="top" constant="8" id="5GC-ud-oe5"/>
                                                 <constraint firstAttribute="bottom" secondItem="7fX-MQ-e9N" secondAttribute="bottom" constant="8" id="OpW-qD-5jA"/>
+                                                <constraint firstItem="efb-cv-1e5" firstAttribute="leading" secondItem="vTy-er-GJI" secondAttribute="leading" constant="8" id="Wzv-es-U3u"/>
                                                 <constraint firstItem="7fX-MQ-e9N" firstAttribute="top" secondItem="vTy-er-GJI" secondAttribute="top" constant="8" id="iZF-4B-zV3"/>
-                                                <constraint firstItem="7fX-MQ-e9N" firstAttribute="leading" secondItem="vTy-er-GJI" secondAttribute="leading" constant="16" id="rjE-dN-W2C"/>
+                                                <constraint firstAttribute="bottom" secondItem="efb-cv-1e5" secondAttribute="bottom" constant="8" id="kKA-cj-TVj"/>
+                                                <constraint firstItem="7fX-MQ-e9N" firstAttribute="leading" secondItem="efb-cv-1e5" secondAttribute="trailing" constant="16" id="rjE-dN-W2C"/>
                                                 <constraint firstAttribute="trailing" secondItem="7fX-MQ-e9N" secondAttribute="trailing" constant="16" id="ySV-mS-Yk1"/>
                                             </constraints>
                                         </view>
@@ -239,6 +250,7 @@
     </scenes>
     <resources>
         <image name="arrow.backward" catalog="system" width="128" height="95"/>
+        <image name="chevron.down" catalog="system" width="128" height="70"/>
         <image name="ic_loginLogo" width="341.33334350585938" height="341.33334350585938"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

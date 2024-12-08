@@ -189,6 +189,10 @@ class ChannelViewController: UIViewController, UICollectionViewDelegate, UIColle
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Selected item at index \(indexPath.item)")
+    }
+    
     // MARK: - Networking
     
     private func getChannels(completion: @escaping (Result<Data, Error>) -> Void) {
